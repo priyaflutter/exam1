@@ -46,8 +46,19 @@ dependencies:
   lottie:
   sqflite:
   grouped_list:
+  google_maps_flutter_web:
+#  location:
+  flutter_geocoder: ^0.2.2-nullsafety
+  google_api_headers: ^1.1.1
+  flutter_polyline_points: ^1.0.0
+  flutter_google_places:
+  geocoder2: ^1.1.0
+  url_launcher: ^6.1.0
+  google_maps_flutter: ^2.1.1
+  geolocator: ^8.2.0
+  geocoding: any
 
-    
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

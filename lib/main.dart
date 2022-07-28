@@ -1,5 +1,9 @@
 import 'package:exam/class.dart';
+import 'package:exam/googlemap/google_map.dart';
+import 'package:exam/googlemap/location_provider.dart';
 import 'package:exam/invicainfotech.dart';
+import 'package:exam/maplast.dart';
+import 'package:exam/maplocation.dart';
 import 'package:exam/postdiffcult.dart';
 import 'package:exam/postmethod.dart';
 import 'package:exam/productapi.dart';
@@ -8,18 +12,23 @@ import 'package:exam/splashpage.dart';
 import 'package:exam/stream.dart';
 import 'package:exam/streammm.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'interview.dart';
 
-
 void main() {
-  runApp(MaterialApp( debugShowCheckedModeBanner: false,
-    home: interview(),
-  ));
+  runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LocationProvider>(
+            create: (context) => LocationProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: location(),
+      )));
 }
 
 //Todo product();
-
 
 class exam extends StatefulWidget {
   const exam({Key? key}) : super(key: key);
@@ -53,16 +62,12 @@ class _examState extends State<exam> {
             ),
             ElevatedButton(
                 onPressed: () {
-
-
                   setState(() {
                     if (a.text.isEmpty) {
                       status = true;
                     } else {
                       status = false;
                     }
-
-                    
                   });
 
                   showModalBottomSheet(
@@ -98,10 +103,12 @@ class _examState extends State<exam> {
                       Container(
                         height: 100,
                         margin: EdgeInsets.all(5),
-                        decoration: BoxDecoration(  shape: BoxShape.circle,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
                             border: Border.all(width: 2),
                             image: DecorationImage(
-                                image: AssetImage("images/p${index + 1}.jpg"),fit: BoxFit.cover)),
+                                image: AssetImage("images/p${index + 1}.jpg"),
+                                fit: BoxFit.cover)),
                       )
                     ],
                   );
