@@ -212,10 +212,10 @@ class dbhelper{
 
     }
 
- Future<void> insertdata(int ii, Database database, String title) async {
+ Future<void> insertdata(int ii, Database database, String title1) async {
 
 
-      String insert="Insert into demo(iid,title) values('$ii','$title')";
+      String insert="Insert into demo(iid,title) values('$ii','$title1')";
 
      int cnt= await database.rawInsert(insert);
              print("cnt====$cnt");
