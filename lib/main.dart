@@ -2,6 +2,9 @@ import 'package:exam/class.dart';
 import 'package:exam/googlemap/google_map.dart';
 import 'package:exam/googlemap/location_provider.dart';
 import 'package:exam/invicainfotech.dart';
+import 'package:exam/json_data/json_.dart';
+import 'package:exam/json_data/provider_model.dart';
+import 'package:exam/json_data/tabbar_.dart';
 import 'package:exam/maplast.dart';
 import 'package:exam/maplocation.dart';
 import 'package:exam/postdiffcult.dart';
@@ -19,12 +22,12 @@ import 'interview.dart';
 void main() {
   runApp(MultiProvider(
       providers: [
-        ChangeNotifierProvider<LocationProvider>(
-            create: (context) => LocationProvider()),
+        ChangeNotifierProvider<LocationProvider>(create: (context) => LocationProvider(),),
+        ChangeNotifierProvider<examquestion>(create: (context) => examquestion()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: location(),
+        home: tabbar(),
       )));
 }
 

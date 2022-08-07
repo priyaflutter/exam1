@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:exam/googlemap/google_map.dart';
 import 'package:exam/mapscreen.dart';
 import 'package:flutter/material.dart';
@@ -14,25 +16,39 @@ class _locationState extends State<location> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Container(
-            height: 100,
-            width: double.infinity,
-            child: TextField(
-        controller:_address_Controller,
+          child: Column(
+            children: [
+              Container(
+                height: 100,
+                width: double.infinity,
+                child: TextField(
+        controller:a,
         maxLines: 2,
         decoration: InputDecoration(
-              suffixIcon: IconButton(
-                  onPressed: () {
+                  suffixIcon: IconButton(
+                      onPressed: () {
 
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
 
-                          return Add_Address_Register_Screen();
-                    },));
-                  }, icon: Icon(Icons.location_on_outlined))),
+                              return Add_Address_Register_Screen();
+                        },));
+                      }, icon: Icon(Icons.location_on_outlined))),
       ),
+              ),
+              Container(
+                height: 100,
+                width: double.infinity,
+                child: ListTile(title: Text("data"),trailing: IconButton(onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+
+                    return Add_Address_Register_Screen();
+                  },));
+                },icon: Icon(Icons.location_on_outlined),),)
+              ),
+            ],
           )),
     );
   }
 
-  TextEditingController _address_Controller = TextEditingController();
+  TextEditingController a = TextEditingController();
 }
