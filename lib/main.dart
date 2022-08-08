@@ -1,29 +1,19 @@
 import 'package:exam/class.dart';
 import 'package:exam/googlemap/google_map.dart';
 import 'package:exam/googlemap/location_provider.dart';
-import 'package:exam/invicainfotech.dart';
-import 'package:exam/json_data/json_.dart';
 import 'package:exam/json_data/provider_model.dart';
 import 'package:exam/json_data/tabbar_.dart';
-import 'package:exam/maplast.dart';
-import 'package:exam/maplocation.dart';
-import 'package:exam/postdiffcult.dart';
-import 'package:exam/postmethod.dart';
-import 'package:exam/productapi.dart';
-import 'package:exam/shayridatabase.dart';
-import 'package:exam/splashpage.dart';
-import 'package:exam/stream.dart';
-import 'package:exam/streammm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'interview.dart';
+import 'json_data/start_exam_pro.dart';
 
 void main() {
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider<LocationProvider>(create: (context) => LocationProvider(),),
         ChangeNotifierProvider<examquestion>(create: (context) => examquestion()),
+        ChangeNotifierProvider<start_exam_pro>(create: (context) =>start_exam_pro()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
