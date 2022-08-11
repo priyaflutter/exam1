@@ -3,6 +3,7 @@ import 'package:exam/googlemap/google_map.dart';
 import 'package:exam/googlemap/location_provider.dart';
 import 'package:exam/json_data/provider_model.dart';
 import 'package:exam/json_data/tabbar_.dart';
+import 'package:exam/rto_data/provider_data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +15,7 @@ void main() {
         ChangeNotifierProvider<LocationProvider>(create: (context) => LocationProvider(),),
         ChangeNotifierProvider<examquestion>(create: (context) => examquestion()),
         ChangeNotifierProvider<start_exam_pro>(create: (context) =>start_exam_pro()),
+        ChangeNotifierProvider<rto_data>(create: (context) =>rto_data()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
